@@ -262,6 +262,7 @@ body.scroll-off .main-wrapper {
 .slider__inner {
 	width: 100%;
 	position: relative;
+	text-align: center;
 }
 .slider__bubble {
 	width: 100%;
@@ -297,16 +298,13 @@ body.scroll-off .main-wrapper {
 	}
 	@keyframes slideFadeIn {
 		0% {
-			opacity: 1;
+			opacity: 0;
 		}
 		50% {
-			opacity: 1;
-		}
-		75% {
-			opacity: .3;
+			opacity: 0;
 		}
 		100% {
-			opacity: 0;
+			opacity: 1;
 		}
 	}
 	.slider__logo {
@@ -325,12 +323,11 @@ body.scroll-off .main-wrapper {
 		left: 0;
 	}
 	.slider__logo:before {
-		background: url(../i/logo-big_w.png) 50% 50% no-repeat;
+		background: url(../i/logo-big.png) 50% 50% no-repeat;
 	}
 	.slider__logo:after {
-		background: url(../i/logo-big.png) 50% 50% no-repeat;
+		background: url(../i/logo-big_w.png) 50% 50% no-repeat;
 		animation: slideFadeIn 1s;
-		opacity: 0;
 	}
 
 	.scroll-off .slider__logo {
@@ -343,8 +340,8 @@ body.scroll-off .main-wrapper {
 		}
 	}
 	.slider__text {
-		font-size: 31px;
-		line-height: 50px;
+		font-size: 60px;
+		line-height: 100px;
 		color: #fff;
 		font-weight: normal;
 		text-align: center;
@@ -352,19 +349,19 @@ body.scroll-off .main-wrapper {
 		animation: slideScrollIn .4s;
 	}
 	.main__btn {
-		display: block;
-		width: 192px;
+		display: inline-block;
+		vertical-align: top;
 		color: #fff;
-		font-size: 14px;
-		letter-spacing: 2px;
+		font-size: 28px;
+		letter-spacing: 5px;
 		font-weight: normal;
 		text-align: center;
 		text-decoration: none;
 		margin: 0 auto;
-		border: 1px solid #fff;
-		line-height: 44px;
-		height: 44px;
-		width: 187px;
+		border: 2px solid #fff;
+		line-height: 88px;
+		height: 88px;
+		padding: 0 80px;
 		animation: slideScrollIn .3s;
 		transition: background .3s ease;
 	}
@@ -393,6 +390,15 @@ body.scroll-off .main-wrapper {
 		.slider__moto {
 			font-size: 100px;
 			line-height: 120px;
+		}
+		.main__btn {
+			font-size: 14px;
+			letter-spacing: 2px;
+			border-width: 1px;
+
+			line-height: 57px;
+			height: 57px;
+			padding: 0 60px;
 		}
 	}
 	.scroll-off .slider__item.slide_2 {
@@ -513,7 +519,8 @@ body:not(.scroll-off) .main__scroll {
 	margin: 0 auto;
 	padding: 0 13px;
 }
-.features {}
+.features {
+}
 .features__list {
 	display: flex;
 	flex-wrap: wrap;
@@ -662,25 +669,9 @@ body:not(.scroll-off) .main__scroll {
 		opacity: 0;
 	}
 }
-.footer {
-	height: 900px;
-	position: relative;
+.partners {
+	margin-top: 170px;
 }
-.footer:before {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	animation: redToBlack 7s linear 0s infinite!important;
-	background: -moz-linear-gradient(top, rgba(254,28,35,0) 0%, rgba(254,28,35,1) 55%, rgba(254,28,35,1) 100%);
-	background: -webkit-linear-gradient(top, rgba(254,28,35,0) 0%,rgba(254,28,35,1) 55%,rgba(254,28,35,1) 100%);
-	background: linear-gradient(to bottom, rgba(254,28,35,0) 0%,rgba(254,28,35,1) 55%,rgba(254,28,35,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00fe1c23', endColorstr='#fe1c23',GradientType=0 );
-}
-
-.partners {}
 .partners__list {
 	display: flex;
 	flex-wrap: wrap;
@@ -709,6 +700,43 @@ body:not(.scroll-off) .main__scroll {
 		flex-basis: 25%;
 	}
 }
+
+
+.footer {
+	height: 100vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+@media (max-width: 750px) {
+	.footer {
+		height: 200vh;
+	}
+}
+.footer:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	animation: redToBlack 7s linear 0s infinite!important;
+	background: -moz-linear-gradient(top, rgba(254,28,35,0) 0%, rgba(254,28,35,1) 55%, rgba(254,28,35,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(254,28,35,0) 0%,rgba(254,28,35,1) 55%,rgba(254,28,35,1) 100%);
+	background: linear-gradient(to bottom, rgba(254,28,35,0) 0%,rgba(254,28,35,1) 55%,rgba(254,28,35,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00fe1c23', endColorstr='#fe1c23',GradientType=0 );
+}
+.footer__inner {
+	position: relative;
+	text-align: center;
+}
+.footer__text {
+	font-size: 52px;
+	line-height: 83px;
+	color: #fff;
+}
+
 
 
 

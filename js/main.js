@@ -191,8 +191,8 @@
         setTimeout(function() {
             window.addEventListener('wheel', touchWheelEvent);
             window.addEventListener('touchstart', touchStartEvent);
-            window.addEventListener('touchend', touchEndEvent);
-            window.addEventListener('touchmove', touchMoveEvent);
+            // window.addEventListener('touchend', touchEndEvent);
+            window.addEventListener('touchmove', touchEndEvent);
             window.addEventListener('scroll', scrollEvent);
             scrollDown.addEventListener('click', slideDown);
         }, 500);

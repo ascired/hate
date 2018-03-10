@@ -99,7 +99,7 @@
 
     function fadeOutTiles() {
         animationInProgress = true;
-        bodyElement.classList.remove('scroll-step-1', 'scroll-reverse');
+        bodyElement.classList.remove('scroll-step-1');
         var tiles = document.querySelectorAll('.js-tile');
         tiles.forEach(function(elem, i) {
             elem.style.width = tileWidth + 'px';
@@ -112,6 +112,7 @@
                 onComplete: function() {
                     if (i === tiles.length - 1) {
                         setTimeout(function() {
+                            bodyElement.classList.remove('scroll-reverse');
                             bodyElement.classList.add('scroll-off');
                             animationInProgress = false;
                         }, 500);
@@ -157,6 +158,9 @@
             bodyElement.classList.remove('scroll-reverse');
         } else {
             bodyElement.classList.add('scroll-reverse');
+        }
+        if (animationInProgress) {
+            event.preventDefault();
         }
     }
 

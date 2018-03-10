@@ -134,7 +134,7 @@
         scrollInDirection(delta);
     }
 
-    var ts = 0;
+    var ts;
     function touchStartEvent(event) {
         ts = event.touches[0].clientY;
     }
@@ -150,6 +150,19 @@
         
         scrollInDirection(delta);
     }
+    var tm = 0;
+     function touchMoveEvent() {
+        var delta;
+        var te = event.changedTouches[0].clientY;
+
+        if (tm > te + 5) {
+            delta = -1;
+        } else if (tm < te - 5) {
+            delta = 1;
+        }
+        
+        scrollInDirection(delta);
+     }
 
     function scrollEvent(event) {
         var ot = window.pageYOffset;
@@ -179,7 +192,7 @@
             window.addEventListener('wheel', touchWheelEvent);
             window.addEventListener('touchstart', touchStartEvent);
             window.addEventListener('touchend', touchEndEvent);
-            window.addEventListener('touchmove', touchEndEvent);
+            window.addEventListener('touchmove', touchMoveEvent);
             window.addEventListener('scroll', scrollEvent);
             scrollDown.addEventListener('click', slideDown);
         }, 500);

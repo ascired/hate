@@ -34,8 +34,7 @@
 
     function scrollInDirection(delta) {
         if (!animationInProgress) {
-            if (delta < 0) {
-                console.log("DOWN");
+            if (delta < 0) { //down
                 downTiks = downTiks - 1;
                 upTiks = wheelTiks;
                 if (downTiks <= 0) {
@@ -50,7 +49,7 @@
                 upTiks = upTiks - 1;
                 downTiks = wheelTiks;
                 if (upTiks <= 0) {
-                    if (bodyElement.classList.contains('scroll-reverse')) {
+                    if (bodyElement.classList.contains('scroll-reverse', 'scroll-step-1')) {
                         requestAnimationFrame(function() {
                             fadeOutTiles();
                             upTiks = wheelTiks;
@@ -179,7 +178,7 @@
             window.addEventListener('wheel', touchWheelEvent);
             window.addEventListener('touchstart', touchStartEvent);
             // window.addEventListener('touchend', touchEndEvent);
-            // window.addEventListener('touchmove', touchEndEvent);
+            window.addEventListener('touchmove', touchEndEvent);
             window.addEventListener('scroll', scrollEvent);
             scrollDown.addEventListener('click', slideDown);
         }, 500);

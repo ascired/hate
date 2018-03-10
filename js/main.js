@@ -134,7 +134,7 @@
         scrollInDirection(delta);
     }
 
-    var ts;
+    var ts = 0;
     function touchStartEvent(event) {
         ts = event.touches[0].clientY;
     }
@@ -179,6 +179,7 @@
             window.addEventListener('wheel', touchWheelEvent);
             window.addEventListener('touchstart', touchStartEvent);
             window.addEventListener('touchend', touchEndEvent);
+            window.addEventListener('touchmove', touchEndEvent);
             window.addEventListener('scroll', scrollEvent);
             scrollDown.addEventListener('click', slideDown);
         }, 500);

@@ -54,6 +54,15 @@ body {
 	font-style: normal;
 	font-size: 14px;
 }
+#lava {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
 body.scroll-off  {
 	overflow-y: scroll;
 }
@@ -169,7 +178,7 @@ body.scroll-off .main-wrapper {
 }
 @media (min-width: 1024px) {
 	body.side-visible .main__content {
-		filter: blur(15px);
+		filter: blur(100px);
 		pointer-events: none;
 	}
 	.header__logo {
@@ -432,7 +441,7 @@ body.scroll-off .main-wrapper {
 	.scroll-off .slider__bubble:before {
 	}
 	.slider__bubble:before {
-		content: '';
+		/*content: '';*/
 		background: url(../i/cameraman-1.png) 50% 50% no-repeat;
 		position: absolute;
 		top: 0;
@@ -680,6 +689,7 @@ body:not(.scroll-off) .main__scroll {
 	padding: 0 13px;
 }
 .features {
+	margin-top: 60px;
 }
 .features__list {
 	display: flex;
@@ -688,21 +698,21 @@ body:not(.scroll-off) .main__scroll {
 }
 .features__item {
 	position: relative;
-	display: block;
-	text-decoration: none;
 	flex-basis: 100%;
 	padding: 30px 18px 30px 19px;
 }
 .features__item:nth-child(1n+5) {
 	display: none;
 }
-.feature__ttl {
+.feature__content {
 	width: 100%;
 	padding-top: 80%;
 	margin: 0;
+	display: block;
+	text-decoration: none;
 	position: relative;
 }
-.feature__ttl span {
+.feature__content span {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -715,7 +725,7 @@ body:not(.scroll-off) .main__scroll {
 	cursor: default;
 	z-index: 3;
 }
-.feature__ttl:after {
+.feature__content:after {
 	content: '';
 	background: url(../i/feature-count.png) 0 0 no-repeat;
 	width: 142px;
@@ -725,7 +735,7 @@ body:not(.scroll-off) .main__scroll {
 	left: 39px;
 	z-index: 3;
 }
-.features__item .feature__ttl:before {
+.features__item .feature__content:before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -735,37 +745,37 @@ body:not(.scroll-off) .main__scroll {
 	background: url(../i/feature-01.jpg) 0 0 no-repeat;
 	background-size: cover;
 }
-.features__item:nth-child(2) .feature__ttl:before {
+.features__item:nth-child(2) .feature__content:before {
 	background-image: url(../i/feature-02.jpg)
 }
-.features__item:nth-child(2) .feature__ttl:after {
+.features__item:nth-child(2) .feature__content:after {
 	background-position: 0 -139px;
 }
-.features__item:nth-child(3) .feature__ttl:before {
+.features__item:nth-child(3) .feature__content:before {
 	background-image: url(../i/feature-03.jpg)
 }
-.features__item:nth-child(3) .feature__ttl:after {
+.features__item:nth-child(3) .feature__content:after {
 	background-position: 0 -278px;
 }
-.features__item:nth-child(4) .feature__ttl:before {
+.features__item:nth-child(4) .feature__content:before {
 	background-image: url(../i/feature-04.jpg)
 }
-.features__item:nth-child(4) .feature__ttl:after {
+.features__item:nth-child(4) .feature__content:after {
 	background-position: 0 -417px;
 }
-.features__item:nth-child(5) .feature__ttl:before {
+.features__item:nth-child(5) .feature__content:before {
 	background-image: url(../i/feature-05.jpg)
 }
-.features__item:nth-child(5) .feature__ttl:after {
+.features__item:nth-child(5) .feature__content:after {
 	background-position: 0 -556px;
 }
-.features__item:nth-child(6) .feature__ttl:before {
+.features__item:nth-child(6) .feature__content:before {
 	background-image: url(../i/feature-06.jpg)
 }
-.features__item:nth-child(6) .feature__ttl:after {
+.features__item:nth-child(6) .feature__content:after {
 	background-position: 0 -695px;
 }
-.features__item:hover .feature__ttl:before {
+.features__item .feature__content:hover:before {
 	-moz-filter: sepia(1) hue-rotate(310deg) saturate(4) contrast(3) opacity(.7); 
 	-webkit-filter: sepia(1) hue-rotate(310deg) saturate(4) contrast(3) opacity(.7); 
 	-o-filter: sepia(1) hue-rotate(310deg) saturate(4) contrast(3) opacity(.7); 
@@ -785,27 +795,27 @@ body:not(.scroll-off) .main__scroll {
 	.main__section {
 		padding: 0 146px;
 	}
-	.feature__ttl span {
+	.feature__content span {
 		padding: 0 0 43px 39px;
 		font-size: 40px;
 	}
 }
 @media (min-width: 1220px) {
-	.feature__ttl span {
+	.feature__content span {
 		font-size: 50px;
 		padding: 0 0 56px 52px;
 	}
-	.feature__ttl:after {
+	.feature__content:after {
 		top: 56px;
 		left: 52px;
 	}
 }
 @media (min-width: 1680px) {
-	.feature__ttl span {
+	.feature__content span {
 		font-size: 60px;
 		padding: 0 0 79px 63px;
 	}
-	.feature__ttl:after {
+	.feature__content:after {
 		top: 79px;
 		left: 63px;
 	}

@@ -177,13 +177,15 @@
             }
         }
 
-        var d = 2;
+        var d = 1;
 
         if (window.outerWidth <= 750) {
-            d = 4;
+            d = 2;
         }
 
-        var scrollPosition = window.pageYOffset + 4 * window.outerHeight / 3;
+        document.querySelector('.js-console').innerHTML = window.pageYOffset;
+
+        var scrollPosition = window.pageYOffset + window.outerHeight * 2 * d / 3;
 
         for (i in sections) {
             if (sections[i] <= scrollPosition) {

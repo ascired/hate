@@ -3,7 +3,7 @@
   "use strict";
 
   var lava0;
-  var ge1doot = {
+  var ascired = {
     screen: {
       elem:     null,
       callback: null,
@@ -33,10 +33,7 @@
           this.left += o.offsetLeft;
           this.top  += o.offsetTop;
         }
-        // if (this.ctx) {
-        //   this.elem.width  = this.width;
-        //   this.elem.height = this.height;
-        // }
+
         if (this.ctx) {
           this.elem.width  = wrap.offsetWidth;
           this.elem.height = wrap.offsetHeight;
@@ -208,6 +205,64 @@
     }
   };
 
+  function drawImageProp() {
+
+    
+    var img = document.getElementById('bg');
+
+    var tempCanvas = ascired.screen.init("temp", null, true);
+    var tCtx = tempCanvas.ctx;
+    tempCanvas.resize();
+
+    var wrap = document.querySelector('.js-slide-first');
+    var x = 0;
+    var y = 0;
+    var w = wrap.offsetWidth;
+    var h = wrap.offsetHeight;
+
+    // default offset is center
+    var offsetX = 0;
+    var offsetY = 0;
+
+    // keep bounds [0.0, 1.0]
+    if (offsetX < 0) offsetX = 0;
+    if (offsetY < 0) offsetY = 0;
+    if (offsetX > 1) offsetX = 1;
+    if (offsetY > 1) offsetY = 1;
+
+    var iw = img.width,
+    ih = img.height,
+    r = Math.min(w / iw, h / ih),
+        nw = iw * r,   // new prop. width
+        nh = ih * r,   // new prop. height
+        cx, cy, cw, ch, ar = 1;
+
+    // decide which gap to fill    
+    if (nw < w) ar = w / nw;                             
+    if (Math.abs(ar - 1) < 1e-14 && nh < h) ar = h / nh;  // updated
+    nw *= ar;
+    nh *= ar;
+
+    // calc source rectangle
+    cw = iw / (nw / w);
+    ch = ih / (nh / h);
+
+    cx = (iw - cw) * offsetX;
+    cy = (ih - ch) * offsetY;
+
+    // make sure source rectangle is valid
+    if (cx < 0) cx = 0;
+    if (cy < 0) cy = 0;
+    if (cw > iw) cw = iw;
+    if (ch > ih) ch = ih;
+
+    // fill image in dest. rectangle
+    tCtx.drawImage(img, cx, cy, cw, ch,  x, y, w, h);
+    return tempCanvas;
+  }
+
+  // var tempCanvas = drawImageProp();
+
   LavaLamp.prototype.renderMetaballs = function() {
     var i = 0, ball;
     while (ball = this.balls[i++]) ball.move();
@@ -216,6 +271,13 @@
     this.sign = -this.sign;
     this.paint = false;
     ctx.fillStyle = this.metaFill;
+    ctx.filter = 'opacity(.8)';
+
+    // var img = document.getElementById('bg');
+    // var pat = ctx.createPattern(img,"no-repeat");
+    // ctx.fillStyle = pat;
+    // ctx.filter = 'sepia(1) hue-rotate(150deg) saturate(4) contrast(3) opacity(.7)';
+
     ctx.beginPath();
     // compute metaballs
     i = 0;
@@ -224,8 +286,8 @@
     while (ball = this.balls[i++]) {
       // first cell
       var next = [
-        Math.round(ball.pos.x / this.step),
-        Math.round(ball.pos.y / this.step), false
+      Math.round(ball.pos.x / this.step),
+      Math.round(ball.pos.y / this.step), false
       ];
       // marching squares
       do {
@@ -268,7 +330,7 @@
     lava0.renderMetaballs();
   };
   // canvas
-  var screen = ge1doot.screen.init("lava", null, true),
+  var screen = ascired.screen.init("lava", null, true),
       ctx = screen.ctx;
   screen.resize();
   // create LavaLamps

@@ -386,7 +386,8 @@ body.side-visible .main-wrapper {
 		color: #fff;
 		padding-left: 115px;
 		position: absolute;
-		bottom: 180px;
+		bottom: 140px;
+		width: 100%;
 	}
 	.sidebar__social-s {
 		margin-right: 60px;

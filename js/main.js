@@ -130,7 +130,9 @@
             delta = -1 * event.deltaY;
         }
 
-        scrollInDirection(delta);
+        if (!bodyElement.classList.contains('side-visible')) {
+            scrollInDirection(delta);
+        }
     }
 
     var ts;
@@ -147,7 +149,9 @@
             delta = 1;
         }
         
-        scrollInDirection(delta);
+        if (!bodyElement.classList.contains('side-visible')) {
+            scrollInDirection(delta);
+        }
     }
 
     function scrollEvent(event) {
@@ -158,13 +162,26 @@
         } else {
             bodyElement.classList.add('scroll-reverse');
         }
-        if (animationInProgress) {
+        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
             event.preventDefault();
         }
     }
 
-    function slideDown() {
-        scrollInDirection(-1);
+    function slideDown(e) {+
+        e.preventDefault();
+        if (!bodyElement.classList.contains('side-visible')) {
+            scrollInDirection(-1);
+        }
+    }
+
+    function showSidebar(e) {
+        e.preventDefault();
+        bodyElement.classList.add('side-visible');
+        e.stopImmediatePropagation();
+    }
+    function hideSidebar(e) {
+        e.preventDefault();
+        bodyElement.classList.remove('side-visible');
     }
 
     window.onload = function() {
@@ -174,10 +191,23 @@
 
         var scrollDown = document.querySelector('.js-scroll-down');
 
+        var openSidebar = document.querySelector('.js-sidebar-open');
+        var closeSidebar = document.querySelector('.js-sidebar-close');
+
+        openSidebar.addEventListener('click', showSidebar);
+        closeSidebar.addEventListener('click', hideSidebar);
+
+        bodyElement.addEventListener('click', function(e) {
+            if (this.classList.contains('side-visible')) {
+                if (!closest(e.target, '.js-sidebar')) {
+                    hideSidebar(e);
+                }
+            }
+        })
+
         setTimeout(function() {
             window.addEventListener('wheel', touchWheelEvent);
             window.addEventListener('touchstart', touchStartEvent);
-            // window.addEventListener('touchend', touchEndEvent);
             window.addEventListener('touchmove', touchEndEvent);
             window.addEventListener('scroll', scrollEvent);
             scrollDown.addEventListener('click', slideDown);

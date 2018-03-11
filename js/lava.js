@@ -271,7 +271,7 @@
     this.sign = -this.sign;
     this.paint = false;
     ctx.fillStyle = this.metaFill;
-    ctx.filter = 'opacity(.8)';
+    ctx.filter = 'opacity(.9)';
 
     // var img = document.getElementById('bg');
     // var pat = ctx.createPattern(img,"no-repeat");
@@ -334,7 +334,7 @@
       ctx = screen.ctx;
   screen.resize();
   // create LavaLamps
-  lava0 = new LavaLamp(screen.width, screen.height, 6,"#ff1c23", "#000");
+  lava0 = new LavaLamp(screen.width, screen.height, 6,"#a41115", "#000");
 
   run();
 

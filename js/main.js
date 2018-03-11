@@ -154,6 +154,14 @@
         }
     }
 
+    var section = document.querySelectorAll(".js-scroll-spy");
+    var sections = {};
+    var i = 0;
+
+    Array.prototype.forEach.call(section, function(e, i) {
+        sections[i] = e.offsetTop;
+    });
+
     function scrollEvent(event) {
         var ot = window.pageYOffset;
         var elemOffsetTop = document.querySelector('.js-slide-second').offsetTop;
@@ -164,6 +172,19 @@
         }
         if (animationInProgress || bodyElement.classList.contains('side-visible')) {
             event.preventDefault();
+        }
+
+
+        var scrollPosition = window.pageYOffset + window.outerHeight / 3;
+
+        for (i in sections) {
+            if (sections[i] <= scrollPosition) {
+                if (!section[i].classList.contains('in-view')) {
+                    section[i].classList.add('in-view');
+                }
+            } else {
+                section[i].classList.remove('in-view');
+            }
         }
     }
 
@@ -184,16 +205,15 @@
         bodyElement.classList.remove('side-visible');
     }
 
+
+  window.onscroll = function() {
+  };
+
     window.onload = function() {
         window.scrollTop = 0;
-        bodyElement.classList.add('scroll-off');
-        createTiles();
-
-        var scrollDown = document.querySelector('.js-scroll-down');
 
         var openSidebar = document.querySelector('.js-sidebar-open');
         var closeSidebar = document.querySelector('.js-sidebar-close');
-
         openSidebar.addEventListener('click', showSidebar);
         closeSidebar.addEventListener('click', hideSidebar);
 
@@ -203,15 +223,28 @@
                     hideSidebar(e);
                 }
             }
-        })
+        });
 
-        setTimeout(function() {
-            window.addEventListener('wheel', touchWheelEvent);
-            window.addEventListener('touchstart', touchStartEvent);
-            window.addEventListener('touchmove', touchEndEvent);
-            window.addEventListener('scroll', scrollEvent);
-            scrollDown.addEventListener('click', slideDown);
-        }, 500);
+        if (!bodyElement.classList.contains('normal-scrolling')) {
+            bodyElement.classList.add('scroll-off');
+            var scrollDown = document.querySelector('.js-scroll-down');
+            var tiles = document.querySelector('.js-slide-tiles');
+            if (tiles) {
+                createTiles();
+            }
+            setTimeout(function() {
+                window.addEventListener('wheel', touchWheelEvent);
+                window.addEventListener('touchstart', touchStartEvent);
+                window.addEventListener('touchmove', touchEndEvent);
+                window.addEventListener('scroll', scrollEvent);
+
+                if (scrollDown) {
+                    scrollDown.addEventListener('click', slideDown);
+                }
+            }, 500);
+        }
+
+
     }
 
 

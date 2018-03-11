@@ -177,7 +177,7 @@
             }
         }
 
-        var scrollPosition = window.pageYOffset + window.outerHeight / 3;
+        var scrollPosition = window.pageYOffset + 2 * window.outerHeight / 3;
 
         for (i in sections) {
             if (sections[i] <= scrollPosition) {

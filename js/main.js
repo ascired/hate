@@ -184,8 +184,8 @@
         }
 
 
-        var scrollPosition = window.scrollY + window.outerHeight * 2 * d / 3;
-        document.querySelector('.js-console').innerHTML = sections[0] + ' - ' +window.scrollY + ' - ' + window.outerHeight + ' - ' + d;
+        var scrollPosition = window.scrollY + window.innerHeight * 2 * d / 3;
+        document.querySelector('.js-console').innerHTML = sections[0] + ' - ' +window.scrollY + ' - ' + window.innerHeight + ' - ' + d;
 
         for (i in sections) {
             if (sections[i] <= scrollPosition) {

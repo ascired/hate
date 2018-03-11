@@ -600,7 +600,7 @@ body.scroll-off .main-wrapper {
 	display: block;
 	position: fixed;
 	left: 50%;
-	bottom: 164px;
+	bottom: 150px;
 	transform: translateX(-50%);
 	font-size: 24px;
 	line-height: 28px;
@@ -610,6 +610,11 @@ body.scroll-off .main-wrapper {
 	text-decoration: none;
 	padding: 0 0 20px;
 	z-index: 1;
+}
+.main__scroll span {
+	position: relative;
+	padding: 0 5px;
+	border-bottom: 2px solid #fff;
 }
 
 body:not(.scroll-off) .main__scroll {
@@ -628,6 +633,9 @@ body:not(.scroll-off) .main__scroll {
 	background: url(../i/social.png) no-repeat;
 }
 @media (min-width: 1024px) {
+	.main__scroll {
+		bottom: 75px;
+	}
 	.main__social {
 		display: block;
 		position: fixed;

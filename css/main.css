@@ -55,8 +55,8 @@ body {
 	font-size: 14px;
 }
 #lava {
-	width: 100vw;
-	height: 100vh;
+	min-width: 100vw;
+	min-height: 100vh;
 	position: absolute;
 	top: 0;
 	right: 0;

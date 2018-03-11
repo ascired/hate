@@ -28,13 +28,18 @@
         var o = this.elem;
         this.width  = o.offsetWidth;
         this.height = o.offsetHeight;
+        var wrap = document.querySelector('.js-slide-first');
         for (this.left = 0, this.top = 0; o != null; o = o.offsetParent) {
           this.left += o.offsetLeft;
           this.top  += o.offsetTop;
         }
+        // if (this.ctx) {
+        //   this.elem.width  = this.width;
+        //   this.elem.height = this.height;
+        // }
         if (this.ctx) {
-          this.elem.width  = this.width;
-          this.elem.height = this.height;
+          this.elem.width  = wrap.offsetWidth;
+          this.elem.height = wrap.offsetHeight;
         }
         this.callback && this.callback();
       }
@@ -246,7 +251,7 @@
     gradient.addColorStop(1, c1);
     return gradient;
   };
-  
+
   var createLinearGradient = function(x0, y0, x1, y1, c0, c1) {
 
     var gradient = ctx.createLinearGradient(x0, y0, x1, y1);
@@ -267,7 +272,7 @@
       ctx = screen.ctx;
   screen.resize();
   // create LavaLamps
-  lava0 = new LavaLamp(screen.width, screen.height, 6, "#000", "#ff1c23");
+  lava0 = new LavaLamp(screen.width, screen.height, 6,"#ff1c23", "#000");
 
   run();
 

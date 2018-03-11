@@ -177,15 +177,8 @@
             }
         }
 
-        var d = 1;
-
-        if (window.outerWidth <= 750) {
-            d = 2;
-        }
-
-
-        var scrollPosition = window.scrollY + window.innerHeight * 2 * d / 3;
-        document.querySelector('.js-console').innerHTML = sections[0] + ' - ' +window.scrollY + ' - ' + window.innerHeight + ' - ' + d;
+        var scrollPosition = window.scrollY + window.innerHeight * 2 / 3;
+        document.querySelector('.js-console').innerHTML = sections[0] + ' - ' +window.scrollY + ' - ' + window.innerHeight;
 
         for (i in sections) {
             if (sections[i] <= scrollPosition) {

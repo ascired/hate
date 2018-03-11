@@ -57,10 +57,6 @@ body {
 body.scroll-off  {
 	overflow-y: scroll;
 }
-body.side-visible .main__content {
-	filter: blur(15px);
-	pointer-events: none;
-}
 /*body.side-visible {
 	overflow: hidden;
 }
@@ -172,6 +168,10 @@ body.scroll-off .main-wrapper {
 	width: 35px;
 }
 @media (min-width: 1024px) {
+	body.side-visible .main__content {
+		filter: blur(15px);
+		pointer-events: none;
+	}
 	.header__logo {
 		width: 56px;
 		height: 21px;
@@ -384,6 +384,7 @@ body.scroll-off .main-wrapper {
 	height: 100vh;
 }
 @media (max-width: 750px) {
+	.scroll-reverse:not(.scroll-step-1) .main-wrapper,
 	.scroll-reverse:not(.scroll-step-1) {
 		height: 200vh;
 	}

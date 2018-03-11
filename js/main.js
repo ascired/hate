@@ -183,9 +183,9 @@
             d = 2;
         }
 
-        document.querySelector('.js-console').innerHTML = window.pageYOffset;
 
         var scrollPosition = window.pageYOffset + window.outerHeight * 2 * d / 3;
+        document.querySelector('.js-console').innerHTML = sections[0] + ' <= ' + scrollPosition;
 
         for (i in sections) {
             if (sections[i] <= scrollPosition) {

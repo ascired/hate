@@ -490,9 +490,20 @@ body.scroll-off .main-wrapper {
 	background: url(../i/bg-2.jpg) 0 0 no-repeat;
 	background-size: cover;
 }
-.slide_case-1 {
+.case__section {
 	min-height: 100vh;
-	background: url(../i/case-bg-1.jpg) 50% 0 no-repeat;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    color: #fff;
+}
+.case__inner {
+	padding: 0 13px;
+}
+@media (min-width: 1024px) {
+	.case__inner {
+		padding: 0 146px;
+	}
 }
 @media (max-width: 750px) {
 	.slide_case-1 {
@@ -847,10 +858,15 @@ body:not(.scroll-off) .main__scroll {
 	align-items: flex-start;
 }
 .case__heading {
-	padding-top: 400px;
+	position: relative;
 	text-align: center;
 }
-.case__text {
+.case__heading-text {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	left: 0;
+	margin: 0 auto;
 	font-family: 'Geometria';
 	color: #fff;
 	font-size: 52px;
@@ -858,6 +874,21 @@ body:not(.scroll-off) .main__scroll {
 	text-transform: uppercase;
 	letter-spacing: 5px;
 	line-height: 80px;
+	transform: translateY(-50%);
+}
+.next-case__text {
+	font-family: 'Geometria';
+	color: #fff;
+	font-size: 21px;
+	line-height: 36px;
+}
+.next-case__a {
+	font-family: 'Geometria';
+	font-weight: bold;
+	color: #fff;
+	font-size: 52px;
+	line-height: 60px;
+	text-decoration: none;
 }
 @media (min-width: 1024px) {
 	.section__center {

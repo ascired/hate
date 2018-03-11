@@ -164,16 +164,18 @@
 
     function scrollEvent(event) {
         var ot = window.pageYOffset;
-        var elemOffsetTop = document.querySelector('.js-slide-second').offsetTop;
-        if (ot !== 0) {
-            bodyElement.classList.remove('scroll-reverse');
-        } else {
-            bodyElement.classList.add('scroll-reverse');
+        var elem = document.querySelector('.js-slide-second');
+        if (elem) {
+            var elemOffsetTop = elem.offsetTop;
+            if (ot !== 0) {
+                bodyElement.classList.remove('scroll-reverse');
+            } else {
+                bodyElement.classList.add('scroll-reverse');
+            }
+            if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+                event.preventDefault();
+            }
         }
-        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
-            event.preventDefault();
-        }
-
 
         var scrollPosition = window.pageYOffset + window.outerHeight / 3;
 
@@ -206,8 +208,6 @@
     }
 
 
-  window.onscroll = function() {
-  };
 
     window.onload = function() {
         window.scrollTop = 0;
@@ -225,6 +225,10 @@
             }
         });
 
+            setTimeout(function() {
+                window.addEventListener('scroll', scrollEvent);
+            });
+
         if (!bodyElement.classList.contains('normal-scrolling')) {
             bodyElement.classList.add('scroll-off');
             var scrollDown = document.querySelector('.js-scroll-down');
@@ -236,7 +240,6 @@
                 window.addEventListener('wheel', touchWheelEvent);
                 window.addEventListener('touchstart', touchStartEvent);
                 window.addEventListener('touchmove', touchEndEvent);
-                window.addEventListener('scroll', scrollEvent);
 
                 if (scrollDown) {
                     scrollDown.addEventListener('click', slideDown);

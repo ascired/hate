@@ -177,7 +177,13 @@
             }
         }
 
-        var scrollPosition = window.pageYOffset + 2 * window.outerHeight / 3;
+        var d = 2;
+
+        if (window.outerWidth <= 750) {
+            d = 4;
+        }
+
+        var scrollPosition = window.pageYOffset + d * window.outerHeight / 3;
 
         for (i in sections) {
             if (sections[i] <= scrollPosition) {

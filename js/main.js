@@ -169,7 +169,7 @@
             var elemOffsetTop = elem.offsetTop;
             if (ot !== 0) {
                 bodyElement.classList.remove('scroll-reverse');
-            } else {
+            } else if (bodyElement.classList.contains('scroll-step-1')) {
                 bodyElement.classList.add('scroll-reverse');
             }
             if (animationInProgress || bodyElement.classList.contains('side-visible')) {
@@ -190,7 +190,7 @@
         }
     }
 
-    function slideDown(e) {+
+    function slideDown(e) {
         e.preventDefault();
         if (!bodyElement.classList.contains('side-visible')) {
             scrollInDirection(-1);

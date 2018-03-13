@@ -163,19 +163,17 @@
     });
 
     function scrollEvent(event) {
-        if (animationInProgress) {
-            var ot = window.pageYOffset;
-            var elem = document.querySelector('.js-slide-second');
-            if (elem) {
-                var elemOffsetTop = elem.offsetTop;
-                if (ot !== 0) {
-                    bodyElement.classList.remove('scroll-reverse');
-                } else if (bodyElement.classList.contains('scroll-step-1')) {
-                    bodyElement.classList.add('scroll-reverse');
-                }
-                if (animationInProgress || bodyElement.classList.contains('side-visible')) {
-                    event.preventDefault();
-                }
+        var ot = window.pageYOffset;
+        var elem = document.querySelector('.js-slide-second');
+        if (elem) {
+            var elemOffsetTop = elem.offsetTop;
+            if (ot !== 0) {
+                bodyElement.classList.remove('scroll-reverse');
+            } else if (bodyElement.classList.contains('scroll-step-1')) {
+                bodyElement.classList.add('scroll-reverse');
+            }
+            if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+                event.preventDefault();
             }
         }
 
@@ -231,9 +229,9 @@
             }
         });
 
-            setTimeout(function() {
-                window.addEventListener('scroll', scrollEvent);
-            });
+        setTimeout(function() {
+            window.addEventListener('scroll', scrollEvent);
+        });
 
         if (!bodyElement.classList.contains('normal-scrolling')) {
             bodyElement.classList.add('scroll-off');
@@ -260,7 +258,7 @@
             s.push(i[n]);
         return i
     }
-     function n(t) {
+    function n(t) {
         return t * t * t
     }
 
@@ -303,35 +301,35 @@
                 return this.inProgress <= 1 && (e = n(1 - this.inProgress) * this.totalLength),
                 this.path.style.strokeDashoffset = e,
                 this.inProgress > .8 && !this.isBig && (this.isBig = !0,
-                this.circle.classList.add("state-big")),
+                    this.circle.classList.add("state-big")),
                 this.inProgress > 1 ? (this.inStart = null,
-                this.inProgress = 1,
-                void window.cancelAnimationFrame(this.inHandle)) : void (this.inHandle = requestAnimationFrame(function() {
-                    return t.drawIn()
-                }))
-            },
-            drawOut: function() {
-                var t = this;
-                this.isBig && (this.isBig = !1,
-                this.circle.classList.remove("state-big")),
-                this.inStart = null,
-                this.outStart || (this.outStart = performance.now()),
-                this.outProgress = 1 - this.inProgress + (performance.now() - this.outStart) / this.outSpeed;
-                var e = this.totalLength;
-                return this.outProgress <= 1 && (e = n(this.outProgress) * this.totalLength),
-                this.path.style.strokeDashoffset = e,
-                this.outProgress > 1 ? (cancelAnimationFrame(this.outHandle),
-                void (this.outStart = null)) : void (this.outHandle = requestAnimationFrame(function() {
-                    return t.drawOut()
-                }))
+                    this.inProgress = 1,
+                    void window.cancelAnimationFrame(this.inHandle)) : void (this.inHandle = requestAnimationFrame(function() {
+                        return t.drawIn()
+                    }))
+                },
+                drawOut: function() {
+                    var t = this;
+                    this.isBig && (this.isBig = !1,
+                        this.circle.classList.remove("state-big")),
+                    this.inStart = null,
+                    this.outStart || (this.outStart = performance.now()),
+                    this.outProgress = 1 - this.inProgress + (performance.now() - this.outStart) / this.outSpeed;
+                    var e = this.totalLength;
+                    return this.outProgress <= 1 && (e = n(this.outProgress) * this.totalLength),
+                    this.path.style.strokeDashoffset = e,
+                    this.outProgress > 1 ? (cancelAnimationFrame(this.outHandle),
+                        void (this.outStart = null)) : void (this.outHandle = requestAnimationFrame(function() {
+                            return t.drawOut()
+                        }))
+                    }
+                }
             }
-        }
-    }
 
-    var socialIcon = document.querySelectorAll('.js-social-icon');
-    socialIcon.forEach(function(elem, i) {
-        r().init(elem);
-    });
+            var socialIcon = document.querySelectorAll('.js-social-icon');
+            socialIcon.forEach(function(elem, i) {
+                r().init(elem);
+            });
 
 
     // var popupOverlay = document.querySelector('.js-popup-holder');

@@ -1259,13 +1259,13 @@ body.scroll-off .main-wrapper {
 		}
 	}
 	.join-us:before {
-		/*content: '';*/
+		content: '';
 		position: absolute;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 0;
-		animation: redToBlack 7s linear 0s infinite;
+		/*animation: redToBlack 7s linear 0s infinite;*/
 		background: -moz-linear-gradient(top, rgba(254,28,35,0) 0%, rgba(254,28,35,1) 55%, rgba(254,28,35,1) 100%);
 		background: -webkit-linear-gradient(top, rgba(254,28,35,0) 0%,rgba(254,28,35,1) 55%,rgba(254,28,35,1) 100%);
 		background: linear-gradient(to bottom, rgba(254,28,35,0) 0%,rgba(254,28,35,1) 55%,rgba(254,28,35,1) 100%);

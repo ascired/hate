@@ -248,8 +248,8 @@ body.scroll-off .main-wrapper {
 .menu__trigger  {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	font-size: 25px;
-	line-height: 27px;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -296,7 +296,6 @@ body.scroll-off .main-wrapper {
 	}
 	.menu__trigger {
 		font-size: 16px;
-		line-height: 18px;
 	}
 	.menu__burger,
 	.menu__burger:before,

@@ -209,17 +209,11 @@
     function showSidebar(e) {
         e.preventDefault();
         bodyElement.classList.add('side-visible');
-
         e.stopImmediatePropagation();
     }
     function hideSidebar(e) {
         e.preventDefault();
         bodyElement.classList.remove('side-visible');
-
-        window.addEventListener('touchmove', touchEndEvent);
-        window.addEventListener('scroll', scrollEvent);
-        window.addEventListener('wheel', wheelEvent);
-        window.addEventListener('touchstart', touchStartEvent);
     }
 
 

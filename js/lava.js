@@ -57,8 +57,8 @@
 
   // Ball constructor
   var Ball = function(parent) {
-    var min = .75;
-    var max = 2.5;
+    var min = .1;
+    var max = 1.5;
     this.vel = new Point(
       (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.25), (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random())
     );

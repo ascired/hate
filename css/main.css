@@ -1571,7 +1571,7 @@ body.scroll-off .main-wrapper {
    ========================================================================== */
    .fade-in-animation {
    	opacity: 0;
-   	transform: translateY(30%);
+   	transform: translateY(50%);
    	transition: opacity 1s ease-out, transform .5s ease-out;
    }
    .in-view .fade-in-animation,

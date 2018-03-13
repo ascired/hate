@@ -139,9 +139,6 @@
 
     var ts;
     function touchStartEvent(e) {
-        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
-            e.preventDefault();
-        }
         ts = e.touches[0].clientY;
     }
     function touchEndEvent(e) {
@@ -213,7 +210,6 @@
     }
     function hideSidebar(e) {
         e.preventDefault();
-        alert(1);
         bodyElement.classList.remove('side-visible');
     }
 
@@ -231,8 +227,6 @@
 
         var openSidebar = document.querySelector('.js-sidebar-open');
         var closeSidebar = document.querySelector('.js-sidebar-close');
-        openSidebar.addEventListener('click', showSidebar);
-        closeSidebar.addEventListener('click', hideSidebar);
 
         bodyElement.addEventListener('click', function(e) {
             if (this.classList.contains('side-visible')) {
@@ -241,6 +235,8 @@
                 }
             }
         });
+        openSidebar.addEventListener('click', showSidebar);
+        closeSidebar.addEventListener('click', hideSidebar);
 
         setTimeout(function() {
             window.addEventListener('scroll', scrollEvent);

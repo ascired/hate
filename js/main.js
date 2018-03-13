@@ -164,14 +164,18 @@
 
     function scrollEvent(event) {
         var ot = window.pageYOffset;
+        console.clear();
+        console.log(ot);
         var elem = document.querySelector('.js-slide-second');
         if (elem) {
             var elemOffsetTop = elem.offsetTop;
-            if (ot !== 0) {
-                bodyElement.classList.remove('scroll-reverse');
-            } else if (bodyElement.classList.contains('scroll-step-1')) {
-                bodyElement.classList.add('scroll-reverse');
-            }
+            if (bodyElement.classList.contains('scroll-step-1')) {
+                if (ot !== 0) {
+                    bodyElement.classList.remove('scroll-reverse');
+                } else {
+                    bodyElement.classList.add('scroll-reverse');
+                }
+            } 
             if (animationInProgress || bodyElement.classList.contains('side-visible')) {
                 event.preventDefault();
             }

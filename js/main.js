@@ -249,6 +249,83 @@
 
 
     }
+    function n(t) {
+        for (var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : document, i = e.querySelectorAll(t), n = 0; n < i.length; n++)
+            s.push(i[n]);
+        return i
+    }
+     function n(t) {
+        return t * t * t
+    }
+
+    function r() {
+        return {
+            inSpeed: 300,
+            outSpeed: 400,
+            circle: null,
+            path: null,
+            totalLength: 565.486677646,
+            isBig: !1,
+            inHandle: null,
+            inStart: null,
+            inProgress: 0,
+            outHandle: null,
+            outStart: null,
+            outProgress: 0,
+            init: function(t) {
+                var e = this;
+                this.circle = t.querySelector('.js-ring'),
+                this.path = t.querySelector('circle'),
+                t.addEventListener("mouseenter", function() {
+                    e.outHandle && cancelAnimationFrame(e.outHandle),
+                    e.inHandle = requestAnimationFrame(function() {
+                        return e.drawIn()
+                    })
+                }),
+                t.addEventListener("mouseleave", function() {
+                    e.inHandle && cancelAnimationFrame(e.inHandle),
+                    e.outHandle = requestAnimationFrame(function() {
+                        return e.drawOut()
+                    })
+                })
+            },
+            drawIn: function() {
+                var t = this;
+                this.inStart || (this.inStart = performance.now()),
+                this.inProgress = (performance.now() - this.inStart) / this.inSpeed;
+                var e = 0;
+                return this.inProgress <= 1 && (e = n(1 - this.inProgress) * this.totalLength),
+                this.path.style.strokeDashoffset = e,
+                this.inProgress > .8 && !this.isBig && (this.isBig = !0,
+                this.circle.classList.add("state-big")),
+                this.inProgress > 1 ? (this.inStart = null,
+                this.inProgress = 1,
+                void window.cancelAnimationFrame(this.inHandle)) : void (this.inHandle = requestAnimationFrame(function() {
+                    return t.drawIn()
+                }))
+            },
+            drawOut: function() {
+                var t = this;
+                this.isBig && (this.isBig = !1,
+                this.circle.classList.remove("state-big")),
+                this.inStart = null,
+                this.outStart || (this.outStart = performance.now()),
+                this.outProgress = 1 - this.inProgress + (performance.now() - this.outStart) / this.outSpeed;
+                var e = this.totalLength;
+                return this.outProgress <= 1 && (e = n(this.outProgress) * this.totalLength),
+                this.path.style.strokeDashoffset = e,
+                this.outProgress > 1 ? (cancelAnimationFrame(this.outHandle),
+                void (this.outStart = null)) : void (this.outHandle = requestAnimationFrame(function() {
+                    return t.drawOut()
+                }))
+            }
+        }
+    }
+
+    var socialIcon = document.querySelectorAll('.js-social-icon');
+    socialIcon.forEach(function(elem, i) {
+        r().init(elem);
+    });
 
 
     // var popupOverlay = document.querySelector('.js-popup-holder');

@@ -145,16 +145,19 @@
         if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
             e.preventDefault();
         } else {
-            var delta;
+            var delta = 0;
             var te = e.changedTouches[0].clientY;
 
-            if (ts > te + 5) {
+            if (ts > te + 30) {
                 delta = -1;
-            } else if (ts < te - 5) {
+            } else if (ts < te - 30) {
                 delta = 1;
             }
 
-            scrollInDirection(delta);
+            if (delta) {
+                scrollInDirection(delta);
+            }
+            
         }
     }
 
@@ -251,8 +254,8 @@
             }
             setTimeout(function() {
                 window.addEventListener('wheel', wheelEvent);
-                window.addEventListener('touchstart', touchStartEvent);
-                window.addEventListener('touchmove', touchEndEvent);
+                window.addEventListener('touchstart', touchStartEvent, {passive: true});
+                window.addEventListener('touchmove', touchEndEvent, {passive: false});
 
                 if (scrollDown) {
                     scrollDown.addEventListener('click', slideDown);

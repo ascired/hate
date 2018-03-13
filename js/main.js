@@ -121,35 +121,42 @@
         })
     }
 
-    function touchWheelEvent(event) {
-        var delta;
-
-        if (event.wheelDelta){
-            delta = event.wheelDelta;
+    function wheelEvent(e) {
+        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+            e.preventDefault();
         } else {
-            delta = -1 * event.deltaY;
-        }
+            var delta;
 
-        if (!bodyElement.classList.contains('side-visible')) {
+            if (e.wheelDelta){
+                delta = e.wheelDelta;
+            } else {
+                delta = -1 * e.deltaY;
+            }
+
             scrollInDirection(delta);
         }
     }
 
     var ts;
-    function touchStartEvent(event) {
-        ts = event.touches[0].clientY;
-    }
-    function touchEndEvent(event) {
-        var delta;
-        var te = event.changedTouches[0].clientY;
-
-        if (ts > te + 5) {
-            delta = -1;
-        } else if (ts < te - 5) {
-            delta = 1;
+    function touchStartEvent(e) {
+        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+            e.preventDefault();
         }
-        
-        if (!bodyElement.classList.contains('side-visible')) {
+        ts = e.touches[0].clientY;
+    }
+    function touchEndEvent(e) {
+        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+            e.preventDefault();
+        } else {
+            var delta;
+            var te = e.changedTouches[0].clientY;
+
+            if (ts > te + 5) {
+                delta = -1;
+            } else if (ts < te - 5) {
+                delta = 1;
+            }
+
             scrollInDirection(delta);
         }
     }
@@ -158,26 +165,24 @@
     var sections = {};
     var i = 0;
 
-    Array.prototype.forEach.call(section, function(e, i) {
-        sections[i] = e.offsetTop;
-    });
-
-    function scrollEvent(event) {
-        var ot = window.pageYOffset;
-        console.clear();
-        console.log(ot);
-        var elem = document.querySelector('.js-slide-second');
-        if (elem) {
-            var elemOffsetTop = elem.offsetTop;
-            if (bodyElement.classList.contains('scroll-step-1')) {
-                if (ot !== 0) {
-                    bodyElement.classList.remove('scroll-reverse');
-                } else {
-                    bodyElement.classList.add('scroll-reverse');
+    function scrollEvent(e) {
+        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+            e.preventDefault();
+        } else {
+            var ot = window.pageYOffset;
+            var elem = document.querySelector('.js-slide-second');
+            if (elem) {
+                var elemOffsetTop = elem.offsetTop;
+                if (bodyElement.classList.contains('scroll-step-1')) {
+                    if (ot !== 0) {
+                        bodyElement.classList.remove('scroll-reverse');
+                    } else {
+                        bodyElement.classList.add('scroll-reverse');
+                    }
+                } 
+                if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+                    e.preventDefault();
                 }
-            } 
-            if (animationInProgress || bodyElement.classList.contains('side-visible')) {
-                event.preventDefault();
             }
         }
 
@@ -204,21 +209,30 @@
     function showSidebar(e) {
         e.preventDefault();
         bodyElement.classList.add('side-visible');
+
         e.stopImmediatePropagation();
     }
     function hideSidebar(e) {
         e.preventDefault();
         bodyElement.classList.remove('side-visible');
+
+        window.addEventListener('touchmove', touchEndEvent);
+        window.addEventListener('scroll', scrollEvent);
+        window.addEventListener('wheel', wheelEvent);
+        window.addEventListener('touchstart', touchStartEvent);
     }
 
 
 
     window.onload = function() {
+        window.scrollTop = 0;
+
+        Array.prototype.forEach.call(section, function(e, i) {
+            sections[i] = e.offsetTop;
+        });
         if (document.querySelector('.loader')) {
             Hate.loader.start();
         }
-
-        window.scrollTop = 0;
 
         var openSidebar = document.querySelector('.js-sidebar-open');
         var closeSidebar = document.querySelector('.js-sidebar-close');
@@ -235,7 +249,7 @@
 
         setTimeout(function() {
             window.addEventListener('scroll', scrollEvent);
-        });
+        }, 500);
 
         if (!bodyElement.classList.contains('normal-scrolling')) {
             bodyElement.classList.add('scroll-off');
@@ -245,14 +259,15 @@
                 createTiles();
             }
             setTimeout(function() {
-                window.addEventListener('wheel', touchWheelEvent);
+                window.addEventListener('wheel', wheelEvent);
                 window.addEventListener('touchstart', touchStartEvent);
                 window.addEventListener('touchmove', touchEndEvent);
 
                 if (scrollDown) {
                     scrollDown.addEventListener('click', slideDown);
                 }
-            }, 500);
+
+            });
         }
 
 

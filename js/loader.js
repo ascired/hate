@@ -54,4 +54,3 @@ Hate.Loader = function(loader) {
 };
 
 Hate.loader = new Hate.Loader('.loader');
-window.onload = Hate.loader.start();

@@ -212,6 +212,10 @@
 
 
     window.onload = function() {
+        if (document.querySelector('.loader')) {
+            Hate.loader.start();
+        }
+
         window.scrollTop = 0;
 
         var openSidebar = document.querySelector('.js-sidebar-open');

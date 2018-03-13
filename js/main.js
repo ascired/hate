@@ -122,7 +122,7 @@
     }
 
     function wheelEvent(e) {
-        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+        if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
             e.preventDefault();
         } else {
             var delta;
@@ -142,7 +142,7 @@
         ts = e.touches[0].clientY;
     }
     function touchEndEvent(e) {
-        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+        if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
             e.preventDefault();
         } else {
             var delta;
@@ -163,7 +163,7 @@
     var i = 0;
 
     function scrollEvent(e) {
-        if (animationInProgress || bodyElement.classList.contains('side-visible')) {
+        if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
             e.preventDefault();
         } else {
             var ot = window.pageYOffset;

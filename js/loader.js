@@ -21,6 +21,7 @@ Hate.Loader = function(loader) {
     return 180 - 90 - Math.asin(areaHeight / hyp) * 180 / 3.14;
   };
   this.start = function() {
+    document.body.classList.add('preloading');
     if (_this.step < _this.steps) {
       var flag = (_this.step - 1) % 2;
       Hate.device.wide
@@ -42,6 +43,7 @@ Hate.Loader = function(loader) {
   };
   this.hide = function() {
     loader.classList.add('is-hidden');
+    document.body.classList.remove('preloading');
     return this;
   };
   this.reset = function() {

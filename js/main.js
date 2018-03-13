@@ -139,7 +139,11 @@
 
     var ts;
     function touchStartEvent(e) {
-        ts = e.touches[0].clientY;
+        if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
+            e.preventDefault();
+        } else {
+            ts = e.touches[0].clientY;
+        }
     }
     function touchEndEvent(e) {
         if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
@@ -254,7 +258,7 @@
             }
             setTimeout(function() {
                 window.addEventListener('wheel', wheelEvent);
-                window.addEventListener('touchstart', touchStartEvent, {passive: true});
+                window.addEventListener('touchstart', touchStartEvent, {passive: false});
                 window.addEventListener('touchmove', touchEndEvent, {passive: false});
 
                 if (scrollDown) {

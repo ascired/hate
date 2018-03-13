@@ -213,6 +213,7 @@
     }
     function hideSidebar(e) {
         e.preventDefault();
+        alert(1);
         bodyElement.classList.remove('side-visible');
     }
 
@@ -261,7 +262,7 @@
                     scrollDown.addEventListener('click', slideDown);
                 }
 
-            });
+            }, 500);
         }
 
 

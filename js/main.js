@@ -26,7 +26,7 @@
     var downTiks = wheelTiks;
 
     var tilesWrap = document.querySelector('.js-slide-tiles');
-    var tileWidth = 15;
+    var tileWidth = Hate.device.wide ? 15 : 30;
     var tilesWrapWidth = window.outerWidth >= 750 ? window.outerWidth : 750;
     var tilesNumber = Math.ceil(tilesWrapWidth / tileWidth);
 

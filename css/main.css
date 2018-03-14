@@ -651,7 +651,7 @@ body.scroll-off .main-wrapper {
 	align-items: center;
 	position: relative;
 }
-body.scroll-reverse:not(.scroll-step-1) {
+body.disable-hover {
 	pointer-events: none;
 }
 @media (min-width: 1024px) {

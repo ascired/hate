@@ -246,9 +246,22 @@
         openSidebar.addEventListener('click', showSidebar);
         closeSidebar.addEventListener('click', hideSidebar);
 
-        setTimeout(function() {
-            window.addEventListener('scroll', scrollEvent);
-        }, 500);
+        // setTimeout(function() {
+        //     window.addEventListener('scroll', scrollEvent);
+        // }, 500);
+
+        var timer;
+
+        window.addEventListener('scroll', function(e) {
+            clearTimeout(timer);
+            if(!bodyElement.classList.contains('disable-hover')) {
+                bodyElement.classList.add('disable-hover')
+            }
+            scrollEvent(e);
+            timer = setTimeout(function(){
+                bodyElement.classList.remove('disable-hover')
+            },500);
+        }, false);
 
         if (!bodyElement.classList.contains('normal-scrolling')) {
             bodyElement.classList.add('scroll-off');

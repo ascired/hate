@@ -57,8 +57,8 @@
 
   // Ball constructor
   var Ball = function(parent) {
-    var min = .1;
-    var max = 1.5;
+    var min = ballsData.minSize;
+    var max = ballsData.maxSize;
     this.vel = new Point(
       (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.25), (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random())
     );
@@ -334,7 +334,12 @@
       ctx = screen.ctx;
   screen.resize();
   // create LavaLamps
-  lava0 = new LavaLamp(screen.width, screen.height, 6,"#a41115", "#000");
+  var ballsData = {
+    number: Hate.device.wide ? 6 : 3,
+    minSize: Hate.device.wide ? .1 : 1,
+    maxSize: Hate.device.wide ? 1.5 : 2
+  }
+  lava0 = new LavaLamp(screen.width, screen.height, ballsData.number, "#a41115", "#000");
 
   run();
 

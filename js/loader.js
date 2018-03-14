@@ -2,7 +2,7 @@ window.Hate = {};
 Hate.device = (function() {
   return {
     touch: Modernizr.touchevents,
-    wide: matchMedia("(min-width: 768px)").matches
+    wide: matchMedia("(min-width: 1024px)").matches
   }
 })();
 Hate.Loader = function(loader) {

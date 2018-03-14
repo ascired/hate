@@ -239,9 +239,7 @@
         bodyElement.addEventListener('click', function(e) {
             if (this.classList.contains('side-visible')) {
                 if (!closest(e.target, '.js-sidebar')) {
-                    requestAnimationFrame(function() {
-                        hideSidebar(e);
-                    });
+                    hideSidebar(e);
                 }
             }
         });
@@ -268,7 +266,7 @@
                 bodyElement.classList.add('disable-hover')
             }
             scrollEvent(e);
-            timer = setTimeout(function() {
+            timer = setTimeout(function(){
                 bodyElement.classList.remove('disable-hover')
             },500);
         }, false);
@@ -282,21 +280,9 @@
                     createTiles();
                 });
             }
-            window.addEventListener('wheel', function(e) {
-                requestAnimationFrame(function() {
-                    wheelEvent(e);
-                });
-            });
-            window.addEventListener('touchstart', function(e) {
-                requestAnimationFrame(function() {
-                    touchStartEvent(e);
-                });
-            }, {passive: false});   
-            window.addEventListener('touchmove', function(e) {
-                requestAnimationFrame(function() {
-                    touchEndEvent(e);
-                });
-            }, {passive: false});
+            window.addEventListener('wheel', wheelEvent);
+            window.addEventListener('touchstart', touchStartEvent, {passive: false});
+            window.addEventListener('touchmove', touchEndEvent, {passive: false});
 
             if (scrollDown) {
                 scrollDown.addEventListener('click', slideDown);

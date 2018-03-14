@@ -191,6 +191,13 @@
             }
         }
 
+        var hh = {
+            innerHeight: window.innerHeight,
+            visualViewportHeight: window.visualViewport.height
+        }
+
+        document.querySelector('.js-console').innerHTML = hh.innerHeight + ' - ' + hh.visualViewportHeight;
+
         var scrollPosition = window.scrollY + window.innerHeight * 2 / 3;
 
         for (i in sections) {

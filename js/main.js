@@ -239,12 +239,22 @@
         bodyElement.addEventListener('click', function(e) {
             if (this.classList.contains('side-visible')) {
                 if (!closest(e.target, '.js-sidebar')) {
-                    hideSidebar(e);
+                    requestAnimationFrame(function() {
+                        hideSidebar(e);
+                    });
                 }
             }
         });
-        openSidebar.addEventListener('click', showSidebar);
-        closeSidebar.addEventListener('click', hideSidebar);
+        openSidebar.addEventListener('click', function(e) {
+            requestAnimationFrame(function() {
+                showSidebar(e);
+            });
+        });
+        closeSidebar.addEventListener('click', function(e) {
+            requestAnimationFrame(function() {
+                hideSidebar(e);
+            });
+        });
 
         // setTimeout(function() {
         //     window.addEventListener('scroll', scrollEvent);
@@ -258,7 +268,7 @@
                 bodyElement.classList.add('disable-hover')
             }
             scrollEvent(e);
-            timer = setTimeout(function(){
+            timer = setTimeout(function() {
                 bodyElement.classList.remove('disable-hover')
             },500);
         }, false);
@@ -268,18 +278,29 @@
             var scrollDown = document.querySelector('.js-scroll-down');
             var tiles = document.querySelector('.js-slide-tiles');
             if (tiles) {
-                createTiles();
+                requestAnimationFrame(function() {
+                    createTiles();
+                });
             }
-            setTimeout(function() {
-                window.addEventListener('wheel', wheelEvent);
-                window.addEventListener('touchstart', touchStartEvent, {passive: false});
-                window.addEventListener('touchmove', touchEndEvent, {passive: false});
+            window.addEventListener('wheel', function(e) {
+                requestAnimationFrame(function() {
+                    wheelEvent(e);
+                });
+            });
+            window.addEventListener('touchstart', function(e) {
+                requestAnimationFrame(function() {
+                    touchStartEvent(e);
+                });
+            }, {passive: false});   
+            window.addEventListener('touchmove', function(e) {
+                requestAnimationFrame(function() {
+                    touchEndEvent(e);
+                });
+            }, {passive: false});
 
-                if (scrollDown) {
-                    scrollDown.addEventListener('click', slideDown);
-                }
-
-            }, 500);
+            if (scrollDown) {
+                scrollDown.addEventListener('click', slideDown);
+            }
         }
 
 

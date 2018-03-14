@@ -651,6 +651,9 @@ body.scroll-off .main-wrapper {
 	align-items: center;
 	position: relative;
 }
+body.scroll-reverse:not(.scroll-step-1) {
+	pointer-events: none;
+}
 @media (min-width: 1024px) {
 	/*.slider__bubble {
 		width: 46%;
@@ -693,6 +696,7 @@ body.scroll-off .main-wrapper {
 		position: relative;
 		width: 100%;
 		height: 240px;
+		pointer-events: none;
 	}
 	.slider__logo:before,
 	.slider__logo:after {

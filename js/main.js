@@ -89,7 +89,7 @@
                             bodyElement.classList.remove('scroll-off');
                             bodyElement.classList.add('scroll-reverse');
                             animationInProgress = false;
-                        }, 1000);
+                        }, 700);
                     }
                 }
             });
@@ -114,7 +114,7 @@
                             bodyElement.classList.remove('scroll-reverse');
                             bodyElement.classList.add('scroll-off');
                             animationInProgress = false;
-                        }, 1000);
+                        }, 700);
                     }
                 }
             });

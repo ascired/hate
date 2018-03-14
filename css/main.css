@@ -791,14 +791,33 @@ body.scroll-off .main-wrapper {
 		text-align: center;
 		color: #ff1c23;
 		width: 100%;
-		background: #ff1c23 url(../i/cameraman-2.png) 50% 50% no-repeat;
+		background: #ff1c23 url(../i/cameraman-2.png) 0 0 repeat;
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;
 		opacity: 0;
 		margin-top: 0;
 		pointer-events: none;
 		z-index: 1;
+		animation: bgRolling 40s infinite ease-in-out;
 		transition: opacity 1s ease, transform .3s ease;
+	}
+
+	@keyframes bgRolling {
+		0% {
+			background-position: 0 0;
+		}
+		25% {
+			background-position: 100% 100%;
+		}
+		50% {
+			background-position: 100% 0;
+		}
+		75% {
+			background-position: 0 100%;
+		}
+		100% {
+			background-position: 0 0;
+		}
 	}
 	@media only screen and (min-width: 1024px) {
 		.slider__moto {

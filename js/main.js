@@ -148,8 +148,6 @@
         }
     }
     function touchEndEvent(e) {
-        var slide = document.querySelector('.js-slide-first');
-        slide.style.height = window.innerHeight + 'px';
         if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
             e.preventDefault();
         } else {

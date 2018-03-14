@@ -98,6 +98,13 @@ body {
 	left: 0;
 	z-index: 2;
 }
+
+@media (min-width: 1024px) {
+	#lava {
+		min-width: auto;
+		width: 1920px;
+	}
+}
 .scroll-reverse:not(.scroll-off):not(.scroll-step-1) #lava {
 	z-index: 0;
 }
@@ -115,10 +122,10 @@ body.scroll-off  {
     width: 100%;
     height: 100%;
     background: #181818;
-    background: -moz-linear-gradient(left, #181818 0%, #ff1c23 50%, #181818 100%);
-    background: -webkit-linear-gradient(left, #181818 0%,#ff1c23 50%,#181818 100%);
-    background: linear-gradient(to right, #181818 0%,#ff1c23 50%,#181818 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181818', endColorstr='#181818',GradientType=1 );
+    background: -moz-linear-gradient(left, #181818 0%, #ff1c23 33%, #181818 66%, #ff1c23 100%);
+    background: -webkit-linear-gradient(left, #181818 0%, #ff1c23 33%, #181818 66%, #ff1c23 100%);
+    background: linear-gradient(to right, #181818 0%, #ff1c23 33%, #181818 66%, #ff1c23 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181818', endColorstr='#ff1c23',GradientType=1 );
     background-size: 2000%;
     animation: LoaderAnim 1.75s ease-in-out both;
     transition: transform 400ms ease;
@@ -918,7 +925,7 @@ body.scroll-off .main-wrapper {
 		.main__social {
 			display: block;
 			position: fixed;
-			left: 66px;
+			padding-left: 66px;
 			bottom: 40px;
 			z-index: 1;
 		}

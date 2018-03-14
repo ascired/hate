@@ -123,7 +123,9 @@
 
     function wheelEvent(e) {
         if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
-            e.preventDefault();
+            if (!closest(e.target, '.js-sidebar')) {
+                e.preventDefault();
+            }
         } else {
             var delta;
 

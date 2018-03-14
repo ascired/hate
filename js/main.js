@@ -138,6 +138,7 @@
     }
 
     var ts;
+    var touchMoving = false;
     function touchStartEvent(e) {
         if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
             if (!closest(e.target, '.js-sidebar')) {
@@ -145,9 +146,13 @@
             }
         } else {
             ts = e.touches[0].clientY;
+            touchMoving = true;
         }
     }
     function touchEndEvent(e) {
+        touchMoving = false;
+    }
+    function touchMoveEvent(e) {
         if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
             e.preventDefault();
         } else {
@@ -162,6 +167,12 @@
 
             if (delta) {
                 scrollInDirection(delta);
+            }
+            if (!bodyElement.classList.contains('scroll-step-1')) {
+                e.preventDefault();
+            }
+            if ((delta > 0) && (bodyElement.classList.contains('scroll-step-1')) && (bodyElement.classList.contains('scroll-reverse'))) {
+                e.preventDefault();
             }
         }
     }
@@ -278,7 +289,8 @@
             }
             window.addEventListener('wheel', wheelEvent);
             window.addEventListener('touchstart', touchStartEvent, {passive: false});
-            window.addEventListener('touchmove', touchEndEvent, {passive: false});
+            window.addEventListener('touchend', touchEndEvent, {passive: false});
+            window.addEventListener('touchmove', touchMoveEvent, {passive: false});
 
             if (scrollDown) {
                 scrollDown.addEventListener('click', slideDown);

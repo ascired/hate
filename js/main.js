@@ -123,9 +123,7 @@
 
     function wheelEvent(e) {
         if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
-            if (!closest(e.target, '.js-sidebar')) {
-                e.preventDefault();
-            }
+            e.preventDefault();
         } else {
             var delta;
 
@@ -142,7 +140,9 @@
     var ts;
     function touchStartEvent(e) {
         if (animationInProgress || bodyElement.classList.contains('side-visible') || (bodyElement.classList.contains('preloading'))) {
-            e.preventDefault();
+            if (!closest(e.target, '.js-sidebar')) {
+                e.preventDefault();
+            }
         } else {
             ts = e.touches[0].clientY;
         }

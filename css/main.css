@@ -424,7 +424,7 @@ body.scroll-off .main-wrapper {
 	}
 }
 .sidebar__nav {
-	padding-top: 42px;
+	padding-top: 45px;
 	padding-left: 115px;
 	margin: 0;
 }
@@ -466,7 +466,7 @@ body.scroll-off .main-wrapper {
 	color: #fff;
 	padding-left: 115px;
 	position: absolute;
-	bottom: 140px;
+	bottom: 170px;
 	width: 100%;
 }
 @media (min-width: 1280px) {

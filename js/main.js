@@ -151,17 +151,15 @@
         } else {
             var delta = 0;
             var te = e.changedTouches[0].clientY;
-            if (ts >= 0) {
-                if (ts > te + 10) {
-                    delta = -1;
-                } else if (ts < te - 10) {
-                    delta = 1;
-                }
+            
+            if (ts > te + 10) {
+                delta = -1;
+            } else if (ts < te - 10) {
+                delta = 1;
+            }
 
-                if (delta) {
-                    scrollInDirection(delta);
-                    ts = -1;
-                }
+            if (delta) {
+                scrollInDirection(delta);
             }
         }
     }

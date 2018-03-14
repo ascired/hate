@@ -278,7 +278,7 @@
             }
             window.addEventListener('wheel', wheelEvent);
             window.addEventListener('touchstart', touchStartEvent, {passive: false});
-            window.addEventListener('touchend', touchEndEvent, {passive: false});
+            window.addEventListener('touchmove', touchEndEvent, {passive: false});
 
             if (scrollDown) {
                 scrollDown.addEventListener('click', slideDown);

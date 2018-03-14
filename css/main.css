@@ -573,7 +573,7 @@ body.scroll-off .main-wrapper {
 	background: #ff1c23;
 }
 .scroll-reverse .slider__item.slide_1 {
-	z-index: 1;
+	z-index: 0;
 }
 .scroll-step-1:not(.scroll-reverse) .slider__item.slide_1 {
 	z-index: -1;

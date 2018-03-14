@@ -177,7 +177,6 @@
             var ot = window.pageYOffset;
             var elem = document.querySelector('.js-slide-second');
             if (elem) {
-                var elemOffsetTop = elem.offsetTop;
                 if (bodyElement.classList.contains('scroll-step-1')) {
                     if (ot !== 0) {
                         bodyElement.classList.remove('scroll-reverse');
@@ -185,9 +184,6 @@
                         bodyElement.classList.add('scroll-reverse');
                     }
                 } 
-                if (animationInProgress || bodyElement.classList.contains('side-visible')) {
-                    e.preventDefault();
-                }
             }
         }
 
@@ -282,7 +278,7 @@
             }
             window.addEventListener('wheel', wheelEvent);
             window.addEventListener('touchstart', touchStartEvent, {passive: false});
-            window.addEventListener('touchmove', touchEndEvent, {passive: false});
+            window.addEventListener('touchend', touchEndEvent, {passive: false});
 
             if (scrollDown) {
                 scrollDown.addEventListener('click', slideDown);

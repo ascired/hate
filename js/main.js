@@ -89,7 +89,7 @@
                             bodyElement.classList.remove('scroll-off');
                             bodyElement.classList.add('scroll-reverse');
                             animationInProgress = false;
-                        }, 500);
+                        }, 700);
                     }
                 }
             });
@@ -114,7 +114,7 @@
                             bodyElement.classList.remove('scroll-reverse');
                             bodyElement.classList.add('scroll-off');
                             animationInProgress = false;
-                        }, 500);
+                        }, 700);
                     }
                 }
             });
@@ -151,7 +151,7 @@
         } else {
             var delta = 0;
             var te = e.changedTouches[0].clientY;
-            
+
             if (ts > te + 10) {
                 delta = -1;
             } else if (ts < te - 10) {

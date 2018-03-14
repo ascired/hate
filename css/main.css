@@ -97,13 +97,17 @@ body {
 	bottom: 0;
 	left: 0;
 	z-index: 2;
+	opacity: 0;
 }
-.scroll-reverse:not(.scroll-off):not(.scroll-step-1) #lava {
+.scroll-off #lava {
+	opacity: 1;
+}
+/*.scroll-reverse:not(.scroll-off):not(.scroll-step-1) #lava {
 	z-index: -2;
 }
 .scroll-reverse:not(.scroll-off):not(.scroll-step-1) .slider__inner {
 	z-index: -1;
-}
+}*/
 body.scroll-off  {
 	overflow-y: scroll;
 }

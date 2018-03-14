@@ -19,6 +19,9 @@
         window.addEventListener('resize', function () {
           this.resize();
         }.bind(this), false);
+        window.addEventListener('destroyLava', function () {
+          this.destroy();
+        }.bind(this), false);
         this.elem.onselectstart = function () { return false; }
         this.elem.ondrag        = function () { return false; }
         initRes && this.resize();
@@ -264,6 +267,7 @@
   // var tempCanvas = drawImageProp();
 
   LavaLamp.prototype.renderMetaballs = function() {
+    
     var i = 0, ball;
     while (ball = this.balls[i++]) ball.move();
     // reset grid
@@ -327,7 +331,11 @@
   var run = function() {
     requestAnimationFrame(run);
     ctx.clearRect(0, 0, screen.width, screen.height);
-    lava0.renderMetaballs();
+    var isSecondSlide = document.body.classList.contains('scroll-step-1');
+    var isScrollOff = document.body.classList.contains('scroll-off');
+    if ((!isSecondSlide) || (isSecondSlide && isScrollOff)) {
+      lava0.renderMetaballs();
+    }
   };
   // canvas
   var screen = ascired.screen.init("lava", null, true),

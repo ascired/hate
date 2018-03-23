@@ -55,4 +55,7 @@ Hate.Loader = function(loader) {
   };
 };
 
-Hate.loader = new Hate.Loader('.loader');
+var loader = document.querySelector('.loader');
+if (loader) {
+  Hate.loader = new Hate.Loader('.loader');
+}

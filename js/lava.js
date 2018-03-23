@@ -109,7 +109,7 @@
     this.sy = Math.floor(this.height / this.step);
     this.paint = false;
     // this.metaFill = createRadialGradient(width, height, width, c0, c1);
-    this.metaFill = createLinearGradient(0,0,0,height, c0, c1);
+    this.metaFill = createLinearGradient(0,0,width,height, c0, c1);
     this.plx = [0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0];
     this.ply = [0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1];
     this.mscases = [0, 3, 0, 3, 1, 3, 0, 3, 2, 2, 0, 2, 1, 1, 0];
@@ -342,7 +342,7 @@
       ctx = screen.ctx;
   screen.resize();
   // create LavaLamps
-  lava0 = new LavaLamp(screen.width, screen.height, 6, "#a41115", "#000");
+  lava0 = new LavaLamp(screen.width, screen.height, 6, "#450b09", "#d6231b");
 
   run();
 

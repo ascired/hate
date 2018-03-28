@@ -1276,7 +1276,7 @@ body.disable-hover {
 	}
 	@media (max-width: 750px) {
 		.join-us {
-			height: 205vh;
+			height: 220vh;
 		}
 	}
 	.join-us__inner {

@@ -974,6 +974,9 @@ body.disable-hover {
 		padding: 0 13px;
 	}
 	.section__center {
+		min-height: 100vh;
+		font-weight: bold;
+    	letter-spacing: 3px;
 		display: flex;
 		justify-content: center;
 		align-items: center;

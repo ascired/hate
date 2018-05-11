@@ -261,10 +261,6 @@
             });
         });
 
-        // setTimeout(function() {
-        //     window.addEventListener('scroll', scrollEvent);
-        // }, 500);
-
         var timer;
 
         window.addEventListener('scroll', function(e) {
@@ -297,6 +293,21 @@
             }
         }
 
+        var sliderWrapper = document.querySelector('.js-slider');
+
+        if (sliderWrapper) {
+            var slider = tns({
+                container: '.js-slider',
+                controls: false,
+                autoplayButton: false,
+                autoplayButtonOutput: false,
+                nav: false,
+                items: 1,
+                mouseDrag: true,
+                autoplay: true,
+
+            });
+        }
 
     }
     function n(t) {

@@ -1420,6 +1420,14 @@ body.disable-hover {
 		border-bottom: 1px solid #ff1c23;
 		margin: 0;
 	}
+	.case__h3 {
+		font-family: 'Geometria';
+		font-weight: bold;
+		font-size: 36px;
+		letter-spacing: 2px;
+		margin: 0;
+		padding: 13px 0 24px;
+	}
 	.case__p {
 		font-family: 'Geometria';
 		font-weight: bold;
@@ -1469,11 +1477,20 @@ body.disable-hover {
 	.case__slider {
 		display: flex; justify-content: center;
 	}
+	.case__slide {
+		text-align: center;
+		user-select: none;
+		height: 90vh;
+		max-height: 960px;
+	}
+	.case__slide img {
+		height: 100%;
+	}
 	.case__p + .case__p {
 		margin-top: 36px;
 	}
 	.case__quote {
-
+		margin-bottom: 50px;
 	}
 	.case__quote img {
 		width: 100%;
@@ -1496,6 +1513,23 @@ body.disable-hover {
 		width: 63px;
 		height: 51px;
 		background: url(../i/icon-quote.png) 50% 50% no-repeat;
+	}
+	.case__video {
+		text-align: center;
+		margin: 30px 0 45px;
+	}
+	.case__video iframe {
+		max-width: 100%;
+	}
+	.case__list {
+		font-family: 'Geometria';
+		font-weight: bold;
+		font-size: 26px;
+		letter-spacing: 1px;
+		margin: 0;
+	}
+	.case__list-i {
+	    list-style: decimal;
 	}
 	@media (min-width: 1280px) {
 		.case__content {
@@ -1534,6 +1568,10 @@ body.disable-hover {
 			position: absolute;
 			right: 0;
 			bottom: 0;
+		}
+		.case__video {
+			text-align: center;
+			margin: 42px 0 55px;
 		}
 	}
 

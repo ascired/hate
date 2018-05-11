@@ -1425,7 +1425,7 @@ body.disable-hover {
 		font-weight: bold;
 		font-size: 36px;
 		letter-spacing: 2px;
-		margin: 0;
+		margin: 0 auto;
 		padding: 13px 0 24px;
 	}
 	.case__p {
@@ -1433,7 +1433,7 @@ body.disable-hover {
 		font-weight: bold;
 		font-size: 26px;
 		letter-spacing: 1px;
-		margin: 0;
+		margin: 0 auto;
 	}
 	.case__well-row {
 		margin-top: 45px;
@@ -1521,16 +1521,67 @@ body.disable-hover {
 	.case__video iframe {
 		max-width: 100%;
 	}
-	.case__list {
-		font-family: 'Geometria';
-		font-weight: bold;
-		font-size: 26px;
-		letter-spacing: 1px;
-		margin: 0;
-	}
 	.case__list-i {
 	    list-style: decimal;
 	}
+	.tns-outer {
+		position: relative;
+	}
+	.tns-controls {
+		display: none;
+	    position: absolute;
+	    bottom: -30px;
+	    margin: 0 auto;
+	    outline: 0;
+	}
+	.tns-controls button {
+		background: none;
+		border: 0;
+		position: relative;
+		width: 16px;
+		height: 30px;
+		margin-right: 55px;
+	}
+	.tns-controls button:before,
+	.tns-controls button:after {
+		content: '';
+		position: absolute;
+		width: 16px;
+		height: 1px;
+		background: #ff1c23;
+		left: 0;
+		top: 50%;
+		transform-origin: 0 0;
+	}
+	.tns-controls button[data-controls="prev"]:before {
+		transform: rotate(45deg);
+	}
+	.tns-controls button[data-controls="next"]:before {
+		transform: rotate(-45deg);
+		left: auto;
+		right: 0;
+		transform-origin: 100% 0;
+	}
+	.tns-controls button[data-controls="prev"]:after {
+		transform: rotate(-45deg);
+	}
+	.tns-controls button[data-controls="next"]:after {
+		transform: rotate(45deg);
+		left: auto;
+		right: 0;
+		transform-origin: 100% 0;
+	}
+
+	@media (min-width: 1024px) {
+		.tns-controls {
+			display: block;
+			bottom: -55px;
+			left: 50%;
+			width: 850px;
+    		transform: translateX(-50%);
+    	}
+	}
+
 	@media (min-width: 1280px) {
 		.case__content {
 			padding: 110px 78px;
@@ -1547,6 +1598,7 @@ body.disable-hover {
 		.case__well {
 			margin-left: 40%;
 		}
+		.case__h3,
 		.case__p {
 			max-width: 850px;
 		}
@@ -1582,6 +1634,7 @@ body.disable-hover {
 		}
 		.case__subttl,
 		.case__intro,
+		.case__h3,
 		.case__p {
 			max-width: 1000px;
 		}
@@ -1589,6 +1642,9 @@ body.disable-hover {
 			font-size: 36px;
 			max-width: 950px;
 			padding: 92px 100px 95px;
+		}
+		.tns-controls {
+			width: 1000px;
 		}
 	}
 

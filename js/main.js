@@ -298,7 +298,8 @@
         if (sliderWrapper) {
             var slider = tns({
                 container: '.js-slider',
-                controls: false,
+                controls: true,
+                controlsText: ['', ''],
                 autoplayButton: false,
                 autoplayButtonOutput: false,
                 nav: false,

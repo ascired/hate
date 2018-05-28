@@ -293,20 +293,21 @@
             }
         }
 
-        var sliderWrapper = document.querySelector('.js-slider');
+        var sliderWrapper = document.querySelectorAll('.js-slider');
 
         if (sliderWrapper) {
-            var slider = tns({
-                container: '.js-slider',
-                controls: true,
-                controlsText: ['', ''],
-                autoplayButton: false,
-                autoplayButtonOutput: false,
-                nav: false,
-                items: 1,
-                mouseDrag: true,
-                autoplay: true,
-
+            sliderWrapper.forEach(function(elem, i) {
+                tns({
+                    container: elem,
+                    controls: false,
+                    controlsText: ['', ''],
+                    autoplayButton: false,
+                    autoplayButtonOutput: false,
+                    nav: false,
+                    items: 1,
+                    mouseDrag: true,
+                    autoplay: true,
+                });
             });
         }
 

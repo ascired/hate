@@ -310,7 +310,7 @@ body.scroll-off .main-wrapper {
 }
 .menu__burger {
 	position: absolute;
-	top: 0;
+	top: 2px;
 	right: 0;
 	width: 30px;
 	height: 4px;

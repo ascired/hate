@@ -1421,7 +1421,6 @@ body.disable-hover {
 		color: #fff;
 		font-size: 96px;
 		text-transform: uppercase;
-		letter-spacing: -3px;
 		line-height: 140px;
 		transform: translateY(-50%);
 	}
@@ -1478,7 +1477,6 @@ body.disable-hover {
 		font-weight: bold;
 		font-size: 31px;
 		line-height: 20px;
-		letter-spacing: -2px;
 		color: #fff;
 		text-transform: uppercase;
 	}
@@ -1497,7 +1495,6 @@ body.disable-hover {
 		font-weight: bold;
 		font-size: 78px;
 		line-height: 76px;
-		letter-spacing: -2px;
 		white-space: nowrap;
 	}
 	.case__highlight-value span {
@@ -1528,7 +1525,6 @@ body.disable-hover {
 		font-weight: bold;
 		font-size: 62px;
 		line-height: 58px;
-		letter-spacing: -2px;
 		color: #fff;
 		white-space: nowrap;
 	}
@@ -1586,7 +1582,6 @@ body.disable-hover {
 		font-weight: bold;
 		font-size: 124px;
 		line-height: 110px;
-		letter-spacing: -2px;
 	}
 	
 	.case__video {
@@ -1616,7 +1611,6 @@ body.disable-hover {
 		font-weight: bold;
 		font-size: 88px;
 		line-height: 80px;
-		letter-spacing: -2px;
 	}
 
 	.case__content.numbers {

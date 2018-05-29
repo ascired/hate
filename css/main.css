@@ -512,7 +512,7 @@ body.scroll-off .main-wrapper {
 .sidebar a:after {
 	left: -5px;
 	position: absolute;
-	top: 13px;
+	top: 50%;
 	background: #fff;
 	content: " ";
 	display: block;
@@ -534,9 +534,6 @@ body.scroll-off .main-wrapper {
 	-webkit-transform: scale(1,1);
 	-ms-transform: scale(1,1);
 	transform: scale(1,1);
-}
-.sidebar .sidebar__social-a:after {
-	top: 4px;
 }
 .main__slider {
 	position: relative;

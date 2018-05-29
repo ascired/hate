@@ -297,6 +297,8 @@ body.scroll-off .main-wrapper {
 	padding-top: 45px;
 }
 .menu__trigger  {
+	display: inline-block;
+	vertical-align: middle;
 	font-size: 37px;
 	height: 28px;
     line-height: 40px;
@@ -504,6 +506,8 @@ body.scroll-off .main-wrapper {
 	margin-left: 20px;
 }
 .sidebar a {
+	display: inline-block;
+	vertical-align: top;
 	position: relative;
 	color: #fff;
 	text-decoration: none;
@@ -511,7 +515,7 @@ body.scroll-off .main-wrapper {
 .sidebar a:after {
 	left: -5px;
 	position: absolute;
-	top: 50%;
+	top: calc(50%-1px);
 	background: #fff;
 	content: " ";
 	display: block;

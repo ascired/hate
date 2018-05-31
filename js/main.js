@@ -1,3 +1,7 @@
+var isMac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+if (isMac) {
+    document.body.classList.add('macOs');
+}
 (function() {
 	var requestAnimationFrame = 
 	window.requestAnimationFrame || 
